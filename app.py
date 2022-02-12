@@ -2,24 +2,11 @@ from bs4 import BeautifulSoup
 
 from selenium import webdriver
 
-"""
-10分に１回情報を取得するスケジュールを組みたい
-def job():
-        get()
-
-schedule.every(10).minutes.do(job) # 10分間隔で定期実行？
-
-while True:
-        schedule.run_pending()
-        time.sleep(1) # １秒間のスリープを挿入
-"""
-
-
 def chromedriver_options():
         # オプション設定
         options = webdriver.ChromeOptions()
-        # options.add_argument('--headless') # ヘッドレスモード
-        # options.add_argument("--blink-settings=imagesEnabled=false") # 画像無効
+        options.add_argument('--headless')  # ヘッドレスモード
+        options.add_argument("--blink-settings=imagesEnabled=false")  # 画像無効
         return options
 
 
@@ -46,7 +33,7 @@ def search_by_waterlevel(driver, waterlevel):
 
         print(f'日時:{dates} {times}／水位:{waterlevels}')
         f = open('WATERLEVEL.txt', 'w')
-        f.write(f'【通報】\n{dates} {times}に水防団待機水位を超過し、水位:{waterlevels}を観測しました')
+        f.write(f'【通報】\n{dates} {times}に水防団待機水位(1.7)を超過し、水位:{waterlevels}を観測しました')
         f.close()
 
         if (1.7 <= float(waterlevels)):
@@ -58,6 +45,8 @@ def search_by_waterlevel(driver, waterlevel):
                 print("平常水位です")
 
 
+
 if __name__ == '__main__':
         driver = webdriver.Chrome()
         search_by_waterlevel(driver, 1)
+        print(__name__)
