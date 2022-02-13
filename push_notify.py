@@ -6,7 +6,7 @@ TOKEN = 'T9lIdJSQ0Gk2w6N9FL7SR5rUFuk3RLCSS9T5eDhiTve'
 # APIのURL
 api_url = 'https://notify-api.line.me/api/notify'
 # 送りたい内容
-f = open('WATERLEVEL.txt', 'r')
+f = open('WATERLEVEL1.txt', 'r')
 data = f.read()
 send_message = data
 send_contents = data
