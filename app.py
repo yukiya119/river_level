@@ -43,8 +43,8 @@ def search_by_waterlevel_1(driver, waterlevel):
                 f = open('WATERLEVEL1.txt', 'w')
                 f.write(f'【通報】\n磐井川\n五串水位観測所は{dates} {times}に水防団待機水位(1.70m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push1.py
-                push1.py
+                import push1
+                push1
 
         else:
                 print("五串水位観測所は、平常水位です")
@@ -75,37 +75,37 @@ def search_by_waterlevel_2(driver, waterlevel):
 
         print(f'磐井川\n釣山\n日時:{dates} {times}\n水位:{waterlevels}')
 
-        if (6.50 <= float(waterlevels)):
+        if 6.50 <= float(waterlevels):
                 print("釣山水位観測所は、氾濫危険水位(6.50m)を超過しています！")
                 f = open('WATERLEVEL2.txt', 'w')
                 f.write(f'【通報】\n磐井川\n釣山水位観測所は{dates} {times}に氾濫危険水位(6.50m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push2.py
-                push2.py
+                import push2
+                push2
 
-        elif (5.90 <= float(waterlevels) < 6.50):
+        elif 5.90 <= float(waterlevels) < 6.50:
                 print("釣山水位観測所は、避難判断水位(5.90m)を超過しています！")
                 f = open('WATERLEVEL2.txt', 'w')
                 f.write(f'【通報】\n磐井川\n釣山水位観測所は{dates} {times}に避難判断水位(5.90m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push2.py
-                push2.py
+                import push2
+                push2
 
-        elif (2.60 <= float(waterlevels) < 5.90):
+        elif 2.60 <= float(waterlevels) < 5.90:
                 print("釣山水位観測所は、氾濫注意水位(2.60m)を超過しています！")
                 f = open('WATERLEVEL2.txt', 'w')
                 f.write(f'【通報】\n磐井川\n釣山水位観測所は{dates} {times}に氾濫注意水位(2.60m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push2.py
-                push2.py
+                import push2
+                push2
 
-        elif (1.80 <= float(waterlevels) < 2.60):
+        elif 1.80 <= float(waterlevels) < 2.60:
                 print("釣山水位観測所は、水防団待機水位(1.80m)を超過しています！")
                 f = open('WATERLEVEL2.txt', 'w')
                 f.write(f'【通報】\n磐井川\n釣山水位観測所は{dates} {times}に水防団待機水位(1.80m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push2.py
-                push2.py
+                import push2
+                push2
 
         else:
                 print("釣山水位観測所は、平常水位です")
@@ -136,37 +136,37 @@ def search_by_waterlevel_3(driver, waterlevel):
 
         print(f'北上川\n狐禅寺\n日時:{dates} {times}\n水位:{waterlevels}')
 
-        if (17.10 <= float(waterlevels)):
+        if 17.10 <= float(waterlevels):
                 print("狐禅寺水位観測所は、氾濫危険水位(17.10m)を超過しています！")
                 f = open('WATERLEVEL3.txt', 'w')
                 f.write(f'【通報】\n北上川\n狐禅寺水位観測所は{dates} {times}に氾濫危険水位(17.10m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push3.py
-                push3.py
+                import push3
+                push3
 
-        elif (16.80 <= float(waterlevels) < 17.10):
+        elif 16.80 <= float(waterlevels) < 17.10:
                 print("狐禅寺水位観測所は、避難判断水位(16.80m)を超過しています！")
                 f = open('WATERLEVEL3.txt', 'w')
                 f.write(f'【通報】\n北上川\n狐禅寺水位観測所は{dates} {times}に避難判断水位(16.80m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push3.py
-                push3.py
+                import push3
+                push3
 
-        elif (7.00 <= float(waterlevels) < 5.90):
+        elif 7.00 <= float(waterlevels) < 5.90:
                 print("狐禅寺水位観測所は、氾濫注意水位(7.00m)を超過しています！")
                 f = open('WATERLEVEL3.txt', 'w')
                 f.write(f'【通報】\n北上川\n狐禅寺水位観測所は{dates} {times}に氾濫注意水位(7.00m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push3.py
-                push3.py
+                import push3
+                push3
 
-        elif (4.00 <= float(waterlevels) < 7.00):
+        elif 4.00 <= float(waterlevels) < 7.00:
                 print("狐禅寺水位観測所は、水防団待機水位(4.00m)を超過しています！")
                 f = open('WATERLEVEL3.txt', 'w')
                 f.write(f'【通報】\n北上川\n狐禅寺水位観測所は{dates} {times}に水防団待機水位(4.00m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push3.py
-                push3.py
+                import push3
+                push3
 
         else:
                 print("狐禅寺水位観測所は、平常水位です")
@@ -197,37 +197,37 @@ def search_by_waterlevel_4(driver, waterlevel):
 
         print(f'北上川\n諏訪前\n日時:{dates} {times}\n水位:{waterlevels}')
 
-        if (8.80 <= float(waterlevels)):
+        if 8.80 <= float(waterlevels):
                 print("諏訪前水位観測所は、氾濫危険水位(8.80m)を超過しています！")
                 f = open('WATERLEVEL4.txt', 'w')
                 f.write(f'【通報】\n北上川\n諏訪前水位観測所は{dates} {times}に氾濫危険水位(8.80m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push4.py
-                push4.py
+                import push4
+                push4
 
-        elif (8.60 <= float(waterlevels) < 8.80):
+        elif 8.60 <= float(waterlevels) < 8.80:
                 print("諏訪前水位観測所は、避難判断水位(8.60m)を超過しています！")
                 f = open('WATERLEVEL4.txt', 'w')
                 f.write(f'【通報】\n北上川\n諏訪前水位観測所は{dates} {times}に避難判断水位(8.60m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push4.py
-                push4.py
+                import push4
+                push4
 
-        elif (5.50 <= float(waterlevels) < 8.60):
+        elif 5.50 <= float(waterlevels) < 8.60:
                 print("諏訪前水位観測所は、氾濫注意水位(5.50m)を超過しています！")
                 f = open('WATERLEVEL4.txt', 'w')
                 f.write(f'【通報】\n北上川\n諏訪前水位観測所は{dates} {times}に氾濫注意水位(5.50m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push4.py
-                push4.py
+                import push4
+                push4
 
-        elif (4.00 <= float(waterlevels) < 5.50):
+        elif 4.00 <= float(waterlevels) < 5.50:
                 print("諏訪前水位観測所は、水防団待機水位(4.00m)を超過しています！")
                 f = open('WATERLEVEL4.txt', 'w')
                 f.write(f'【通報】\n北上川\n諏訪前水位観測所は{dates} {times}に水防団待機水位(4.00m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push4.py
-                push4.py
+                import push4
+                push4
 
         else:
                 print("諏訪前水位観測所は、平常水位です")
@@ -258,37 +258,37 @@ def search_by_waterlevel_5(driver, waterlevel):
 
         print(f'砂鉄川\n十二木橋\n日時:{dates} {times}\n水位:{waterlevels}')
 
-        if (5.80 <= float(waterlevels)):
+        if 5.80 <= float(waterlevels):
                 print("十二木橋水位観測所は、氾濫危険水位(5.80m)を超過しています！")
                 f = open('WATERLEVEL5.txt', 'w')
                 f.write(f'【通報】\n砂鉄川\n十二木橋水位観測所は{dates} {times}に氾濫危険水位(17.10m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push5.py
-                push5.py
+                import push5
+                push5
 
-        elif (3.70 <= float(waterlevels) < 5.80):
+        elif 3.70 <= float(waterlevels) < 5.80:
                 print("十二木橋水位観測所は、避難判断水位(3.70m)を超過しています！")
                 f = open('WATERLEVEL5.txt', 'w')
                 f.write(f'【通報】\n砂鉄川\n十二木橋水位観測所は{dates} {times}に避難判断水位(16.80m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push5.py
-                push5.py
+                import push5
+                push5
 
-        elif (3.00 <= float(waterlevels) < 3.70):
+        elif 3.00 <= float(waterlevels) < 3.70:
                 print("十二木橋水位観測所は、氾濫注意水位(3.00m)を超過しています！")
                 f = open('WATERLEVEL5.txt', 'w')
                 f.write(f'【通報】\n砂鉄川\n十二木橋水位観測所は{dates} {times}に氾濫注意水位(7.00m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push5.py
-                push5.py
+                import push5
+                push5
 
-        elif (0.0 <= float(waterlevels) < 3.00):
+        elif 2.20 <= float(waterlevels) < 3.00:
                 print("十二木橋水位観測所は、水防団待機水位(2.20m)を超過しています！")
                 f = open('WATERLEVEL5.txt', 'w')
-                f.write(f'【テスト通報】\n砂鉄川\n十二木橋水位観測所は{dates} {times}に水防団待機水位(0.00m仮)を超過し、水位:{waterlevels}を観測しました')
+                f.write(f'【通報】\n砂鉄川\n十二木橋水位観測所は{dates} {times}に水防団待機水位(5.00m)を超過し、水位:{waterlevels}を観測しました')
                 f.close()
-                import push5.py
-                push5.py
+                import push5
+                push5
 
         else:
                 print("十二木橋水位観測所は、平常水位です")
