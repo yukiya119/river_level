@@ -8,8 +8,7 @@ import schedule
 
 
 def task():
-    print('実行中')
-
+    pass
 
 schedule.every(10).minutes.do(task)
 

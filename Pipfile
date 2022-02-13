@@ -13,6 +13,7 @@ bs4 = "*"
 lxml = "*"
 flask = "*"
 django-request = "*"
+chromedriver = "*"
 
 [dev-packages]
 
