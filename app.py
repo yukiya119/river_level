@@ -16,6 +16,7 @@ URL2 = 'http://www1.river.go.jp/cgi-bin/DspWaterData.exe?KIND=9&ID=3020412822044
 URL3 = 'http://www1.river.go.jp/cgi-bin/DspWaterData.exe?KIND=9&ID=302041282204270'  # 狐禅寺(北上川)
 URL4 = 'http://www1.river.go.jp/cgi-bin/DspWaterData.exe?KIND=9&ID=302041282204310'  # 諏訪前(北上川)
 URL5 = 'http://www1.river.go.jp/cgi-bin/DspWaterData.exe?KIND=9&ID=302041282204490'  # 十二木橋(砂鉄川)
+URL6 = 'http://www1.river.go.jp/cgi-bin/DspWaterData.exe?KIND=9&ID=302041282204460'  # 妻神(砂鉄川)
 
 
 def search_by_waterlevel_1(driver, waterlevel):
@@ -297,3 +298,64 @@ def search_by_waterlevel_5(driver, waterlevel):
 if __name__ == '__main__':
         driver = webdriver.Chrome()
         search_by_waterlevel_5(driver, 5)
+
+
+def search_by_waterlevel_6(driver, waterlevel):
+        driver.get(f'{URL6}')
+
+        # ブラウザの読み込みが終わるのを待つ
+        driver.implicitly_wait(10)
+
+        iframe = driver.find_element_by_tag_name('iframe')
+        driver.switch_to.frame(iframe)
+
+        # iframeのソースを取得し表データの'tr'タグの１番目（最新[0]）のみ取得する
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        table = soup.find_all("tr")[0]
+        driver.close()
+
+        dates = table.find_all("td")[0].text
+        times = table.find_all("td")[1].text
+        waterlevels = table.find_all("td")[2].text
+
+        print(f'砂鉄川\n妻神\n日時:{dates} {times}\n水位:{waterlevels}')
+
+        if 8.70 <= float(waterlevels):
+                print("妻神水位観測所は、氾濫危険水位(8.70m)を超過しています！")
+                f = open('WATERLEVEL6.txt', 'w')
+                f.write(f'【通報】\n砂鉄川\n妻神水位観測所は{dates} {times}に氾濫危険水位(17.10m)を超過し、水位:{waterlevels}を観測しました')
+                f.close()
+                import push6
+                push6
+
+        elif 8.10 <= float(waterlevels) < 8.70:
+                print("妻神水位観測所は、避難判断水位(8.10m)を超過しています！")
+                f = open('WATERLEVEL6.txt', 'w')
+                f.write(f'【通報】\n砂鉄川\n妻神水位観測所は{dates} {times}に避難判断水位(16.80m)を超過し、水位:{waterlevels}を観測しました')
+                f.close()
+                import push6
+                push6
+
+        elif 5.60 <= float(waterlevels) < 8.10:
+                print("妻神水位観測所は、氾濫注意水位(5.60m)を超過しています！")
+                f = open('WATERLEVEL6.txt', 'w')
+                f.write(f'【通報】\n砂鉄川\n妻神水位観測所は{dates} {times}に氾濫注意水位(7.00m)を超過し、水位:{waterlevels}を観測しました')
+                f.close()
+                import push6
+                push6
+
+        elif 3.80 <= float(waterlevels) < 5.60:
+                print("妻神水位観測所は、水防団待機水位(3.80m)を超過しています！")
+                f = open('WATERLEVEL6.txt', 'w')
+                f.write(f'【通報】\n砂鉄川\n妻神水位観測所は{dates} {times}に水防団待機水位(5.00m)を超過し、水位:{waterlevels}を観測しました')
+                f.close()
+                import push6
+                push6
+
+        else:
+                print("妻神水位観測所は、平常水位です")
+
+
+if __name__ == '__main__':
+        driver = webdriver.Chrome()
+        search_by_waterlevel_6(driver, 6)
